@@ -1,0 +1,8 @@
+<div>
+{{capital}}
+</div>
+<div>
+	<google-map center="map.center" zoom="map.zoom">
+     	<marker data-ng-repeat="marker in markers" coords="marker" idkey="$index"></marker>
+	</google-map>
+</div>

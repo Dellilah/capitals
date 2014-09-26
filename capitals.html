@@ -1,0 +1,23 @@
+<html data-ng-app="capitalsApp">
+<head>
+	<title> Capitals </title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="Content/style.css">
+</head>
+<body>
+	<div data-ng-view></div>
+	<!-- Skrypty zewnetrzne: Angular -->
+	<script src="./Scripts/angular.min.js"></script>
+    <script src="./Scripts/angular-route.js"></script>
+	<script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
+	<script src='./Scripts/lodash.underscore.js'></script>
+	<script src='./Scripts/angular-google-maps.min.js'></script>
+	
+
+    <!-- Biblioteka "wlasna" -->
+    <script src="app/app.js"></script>
+    <script src="app/controllers/controllers.js"></script>
+    <script src="app/services/services.js"></script>
+
+</body>
+</html>

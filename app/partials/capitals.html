@@ -1,0 +1,30 @@
+<div class="container">
+	Filtruj dane (stolica, kraj) <input type="text" data-ng-model="f1"><br><br>
+	<table>
+		<tr class="filters">
+			<td></td><td></td>
+			<!-- Region -->
+			<td><select data-ng-model="f.region" data-ng-options="country.region for country in countries | unique:'region' ">
+				<option value="">Filtruj: kontynent</option>
+			</select></td>
+			<!-- Subregion -->
+			<td><select data-ng-model="f.subregion" data-ng-options="country.subregion for country in countries | unique:'subregion'">
+				<option value="">Filtruj: region</option>
+			</select></td>
+			<!-- Currency -->
+			<td><select data-ng-model="f.currency" data-ng-options="country.field for country in countries | flatten: 'currencies' | unique: 'field'">
+				<option value="">Filtruj: waluta</option></select></td>
+			<!-- Language -->
+			<td><select data-ng-model="f.language" data-ng-options="country.field for country in countries | flatten: 'languages' | unique: 'field'">
+				<option value="">Filtruj: jezyk</option></select></td>
+			</tr>
+		<tr><th>STOLICA</th><th>...czego?</th><th>Kontynent</th><th>...dokladniej</th>
+			<th>Waluty</th><th>Jezyki urzedowe</th><th>Strefa/y czasowe kraju</th><th>Dlugosc geograficzna </th><th>Szerokość geograficzna</th></tr>
+		<tr data-ng-repeat="c in countries | myFilter:f1:f.region:f.subregion:f.currency:f.language">
+			<td><a href="#/maps/{{c.capital}}">{{c.capital}}</a></td><td>{{c.name}}</td><td>{{c.region}}</td><td>{{c.subregion}}</td>
+			<td><ul><li data-ng-repeat="currency in c.currencies">{{currency}}</li></ul></td>
+			<td><ul><li data-ng-repeat="lang in c.languages">{{lang}}</li></ul></td>
+			<td><ul><li data-ng-repeat="timezone in c.timezones">{{timezone}}</li></ul></td>
+			<td>{{c.latlng[1]}}</td><td>{{c.latlng[0]}}</td></tr>
+	</table>
+</div>
